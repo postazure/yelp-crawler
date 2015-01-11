@@ -20,4 +20,10 @@ describe NokoConverter do
 		r_biz = r_biz.to_biz
 		expect(r_biz.name).to eq "The Social Study"
 	end
+
+	it "returns reviews (40) from page" do
+		noko = NokoConverter.new(source)
+		reviews = noko.reviews
+		expect(reviews.count).to be 40
+	end
 end

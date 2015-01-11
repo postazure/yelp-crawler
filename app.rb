@@ -5,6 +5,6 @@ require "Nokogiri"
 require "RestClient"
 
 
-crawler = Crawler.new("http://www.yelp.com/biz/fat-angel-san-francisco")
-biz = crawler.health_score(90)
+crawler = Crawler.new("http://www.yelp.com/biz/krispy-kreme-daly-city")
+biz = crawler.health_score(100)
 p biz.name
