@@ -27,4 +27,11 @@ describe Review do
     review = Review.new(reviews[0])
     expect(review.stars).to eq "5.0"
   end
+
+  it "has description" do
+    page = NokoConverter.new(source)
+    reviews = page.reviews
+    review = Review.new(reviews[0])
+    expect(review.description).to include "Beer/wine selection: outstanding"
+  end
 end

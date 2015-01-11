@@ -1,9 +1,11 @@
 class Review
-  attr_reader :author, :db_date, :stars
+  attr_reader :author, :db_date, :stars, :description
   def initialize(review)
     @review = review
     @author = extract_meta("author")
     @stars = extract_meta("ratingValue")
+    @description = review.css("div.review-content > p").text
+
   end
 
   def date
