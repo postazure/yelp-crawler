@@ -20,4 +20,11 @@ describe Review do
     review = Review.new(reviews[0])
     expect(review.date).to eq "12/27/2014"
   end
+
+  it "has stars" do
+    page = NokoConverter.new(source)
+    reviews = page.reviews
+    review = Review.new(reviews[0])
+    expect(review.stars).to eq "5.0"
+  end
 end

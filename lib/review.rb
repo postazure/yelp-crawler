@@ -1,20 +1,20 @@
 class Review
-  attr_reader :author
+  attr_reader :author, :db_date, :stars
   def initialize(review)
     @review = review
     @author = extract_meta("author")
-
-
+    @stars = extract_meta("ratingValue")
   end
 
   def date
     db_formated_date = extract_meta("datePublished").split("-")
-    
-    Time.new(
+
+    @db_date = Time.new(
     db_formated_date[0],
     db_formated_date[1],
     db_formated_date[2]
-    ).strftime("%m/%d/%Y")
+    )
+    @db_date.strftime("%m/%d/%Y")
   end
   private
   def extract_meta(property)
