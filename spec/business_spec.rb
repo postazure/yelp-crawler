@@ -1,6 +1,7 @@
 require "spec_helper"
 require "noko_converter"
 require "business"
+require "review"
 require "Nokogiri"
 require "RestClient"
 
@@ -52,5 +53,20 @@ describe Business do
     related_biz = Business.new(related_noko)
     related_biz_name = related_biz.name
     expect(related_biz_name).to eq "The Social Study"
+  end
+
+  describe "#reviews" do
+    it "business has reviews" do
+      page = NokoConverter.new(source)
+      biz = page.to_biz
+      expect(biz.reviews.count).to eq 40
+    end
+
+    it "has author of first review" do
+      page = NokoConverter.new(source)
+      biz = page.to_biz
+      
+      expect(biz.reviews.first.author).to eq "Stephanie F."
+    end
   end
 end

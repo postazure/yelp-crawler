@@ -1,6 +1,7 @@
 require_relative "./lib/noko_converter"
 require_relative "./lib/crawler"
 require_relative "./lib/Business"
+require_relative "./lib/Review"
 require "Nokogiri"
 require "RestClient"
 

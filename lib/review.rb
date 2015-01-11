@@ -5,7 +5,6 @@ class Review
     @author = extract_meta("author")
     @stars = extract_meta("ratingValue")
     @description = review.css("div.review-content > p").text
-
   end
 
   def date
@@ -18,6 +17,7 @@ class Review
     )
     @db_date.strftime("%m/%d/%Y")
   end
+
   private
   def extract_meta(property)
     @review.css("meta[itemprop='#{property}']").attr("content").value
